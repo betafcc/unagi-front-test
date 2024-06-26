@@ -28,8 +28,10 @@ NOTE: there is an obvious way, by just doing `new Date().toLocaleDateString()`, 
 
 Bonus points (can be done in arbitrary order):
 
-- 📋 Add loading state in the UI.
-- 📋 Handle error state, e.g. if the server returns 500.
+- ✅ Add loading state in the UI.
+- ✅ Handle error state, e.g. if the server returns 500.
+
+About these last two points, I would normally use [TanStack Query](https://tanstack.com/query/latest/docs/framework/react/overview) and maybe the `Suspense` API, that automatically handles loading and error state, but I'm assuming this part should be done by hand to show that I know how to do basic data fetching without libs.
 
 - ✅ Implement a reusable card component.
 
