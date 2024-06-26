@@ -20,18 +20,24 @@ export const Collection = () => {
         return (
           <>
             <button onClick={cmd.openCreate}>Create card</button>
-            {state.cards.map((card) => (
-              <Card key={card.id} {...card} />
-            ))}
-            <CreateCard
-              open={state.type === 'creating'}
-              onClose={cmd.cancelCreate}
-              onConfirm={cmd.create}
-            />
+            <main className="collection__cards">
+              {state.cards.map((card) => (
+                <Card key={card.id} {...card} />
+              ))}
+              <CreateCard
+                open={state.type === 'creating'}
+                onClose={cmd.cancelCreate}
+                onConfirm={cmd.create}
+              />
+            </main>
           </>
         )
     }
   })()
 
-  return <div>{content}</div>
+  return (
+    <div className="collection">
+      <div className="collection__container">{content}</div>
+    </div>
+  )
 }

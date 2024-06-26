@@ -43,7 +43,7 @@ export const LazyImage: FC<ComponentProps<'img'> & { src: string }> = ({
       },
       {
         root: null,
-        threshold: 0.5,
+        threshold: 0.1,
       }
     )
 
