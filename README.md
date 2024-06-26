@@ -18,6 +18,13 @@ This one was pretty hard and I was surprised there wasn't an easy lib to handle 
 Images only start loading when the img element is on the screen, and, while image is not loaded, render a loading skeleton
 
 Check [the source file](./src/pages/LazyImage.tsx)
+Or the demo:
+
+<p align="center">
+  <img src="./demo-lazy-load.gif" width="300px">
+</p>
+
+
 
 - ✅ Format player DOB in a human-readable way.
 
@@ -93,3 +100,9 @@ There is a lot of things unstyled, but at least the basic cards I could do somet
 - background of player photo generates a gradient background with the player id as seed
 - 3d following effect
 - card shine reflection effect
+
+Demo:
+
+<p align="center">
+  <img src="./demo.gif" width="300px">
+</p>
