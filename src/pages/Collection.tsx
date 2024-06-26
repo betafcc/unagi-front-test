@@ -3,7 +3,7 @@ import React from 'react'
 import { fetchCollection } from '../lib/collection'
 
 import './Collection.css'
-import { Card } from './Card'
+import { Card } from '../components/Card'
 
 export const Collection = () => {
   const collection = fetchCollection()
