@@ -1,6 +1,6 @@
 import React from 'react'
-import { render } from 'react-dom'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import ReactDOM from 'react-dom/client'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import './index.css'
 import 'react-loading-skeleton/dist/skeleton.css'
@@ -8,13 +8,19 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import { Collection } from './pages/Collection'
 import { CreateCard } from './pages/CreateCard'
 
-const App = () => (
-  <Router>
-    <Switch>
-      <Route exact path="/collection" component={Collection} />
-      <Route exact path="/create-card" component={CreateCard} />
-    </Switch>
-  </Router>
-)
+const router = createBrowserRouter([
+  {
+    path: '/collection',
+    element: <Collection />,
+  },
+  {
+    path: '/create-card',
+    element: <CreateCard />,
+  },
+])
 
-render(<App />, document.getElementById('root'))
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
+)
