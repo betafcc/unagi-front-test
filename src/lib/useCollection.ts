@@ -11,12 +11,28 @@ export type State =
 
 export const initial: State = { type: 'loading' }
 
+export type Order = keyof typeof orderCmp
+
+export const orderCmp = {
+  id: (a, b) => a.id - b.id,
+  firstname: (a, b) => a.player.firstname.localeCompare(b.player.firstname),
+  lastname: (a, b) => a.player.lastname.localeCompare(b.player.lastname),
+  birthday: (a, b) => a.player.birthday.localeCompare(b.player.birthday),
+} as const satisfies Record<
+  string,
+  (a: collection.CardData, b: collection.CardData) => number
+>
+
+// export const orders = Object.keys(orderCmp)
+export const orders: Array<Order> = ['id', 'firstname', 'lastname', 'birthday']
+
 export type Action =
   | { type: 'got-cards'; cards: Array<collection.CardData> }
   | { type: 'got-error'; error: Error }
   | { type: 'started-create' }
   | { type: 'canceled-create' }
   | { type: 'got-card'; card: collection.CardData }
+  | { type: 'changed-order'; order: Order }
 
 export const reducer = (state: State, action: Action): State => {
   switch (state.type) {
@@ -33,6 +49,11 @@ export const reducer = (state: State, action: Action): State => {
       switch (action.type) {
         case 'started-create':
           return { type: 'creating', cards: state.cards }
+        case 'changed-order':
+          return {
+            type: 'idle',
+            cards: [...state.cards].sort(orderCmp[action.order]),
+          }
         default:
           return state
       }
@@ -78,6 +99,10 @@ export const useCollection = () => {
       }, []),
       cancelCreate: useCallback(
         () => dispatch({ type: 'canceled-create' }),
+        []
+      ),
+      orderBy: useCallback(
+        (order: Order) => dispatch({ type: 'changed-order', order }),
         []
       ),
     },

@@ -73,3 +73,14 @@ In any case check [the client api](./src/lib/collection.ts), I didn't implement 
 - ✅ Handle server-side errors, e.g. 4xx on submitting.
 
 All of the logic is contained in the [useCollection](./src/lib/useCollection.ts) hook, in redux (strict, elm-like) style.
+
+
+### 4. Show all the cards as a collection
+
+- ✅ Basic
+
+Bonus points (can be done in arbitrary order):
+- ✅ Add loading state in the UI.
+- ✅ Add empty state (endpoint returns an empty array).
+- ✅ Add simple client-side ordering by any criteria - DOB/Last name/First name etc.
+  with a UI control, e.g. Radio button.

@@ -5,6 +5,7 @@ import { CreateCard } from '../components/CreateCard'
 import { useCollection } from '../lib/useCollection'
 
 import './Collection.css'
+import { Actions } from '../components/Actions'
 
 export const Collection = () => {
   const [state, cmd] = useCollection()
@@ -19,11 +20,13 @@ export const Collection = () => {
       case 'creating':
         return (
           <>
-            <button onClick={cmd.openCreate}>Create card</button>
+            <Actions openCreate={cmd.openCreate} orderBy={cmd.orderBy} />
             <main className="collection__cards">
-              {state.cards.map((card) => (
-                <Card key={card.id} {...card} />
-              ))}
+              {state.cards.length === 0 ? (
+                <h1>No cards yet</h1>
+              ) : (
+                state.cards.map((card) => <Card key={card.id} {...card} />)
+              )}
               <CreateCard
                 open={state.type === 'creating'}
                 onClose={cmd.cancelCreate}
