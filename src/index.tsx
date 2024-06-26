@@ -6,17 +6,17 @@ import './index.css'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 import { Collection } from './pages/Collection'
-import { CreateCard } from './pages/CreateCard'
 
 const router = createBrowserRouter([
   {
     path: '/collection',
     element: <Collection />,
   },
-  {
-    path: '/create-card',
-    element: <CreateCard />,
-  },
+  // Using modal instead
+  // {
+  //   path: '/create-card',
+  //   element: <CreateCard />,
+  // },
 ])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

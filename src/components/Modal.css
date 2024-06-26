@@ -1,0 +1,53 @@
+.modal {
+  position: relative;
+  z-index: 50;
+}
+
+.modal__content {
+  inset: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  padding: 1rem;
+}
+
+.modal__panel {
+  width: 24rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: rgb(26 26 26);
+  border-width: 1px;
+  border-color: rgb(128 128 128);
+  border-radius: 0.375rem;
+}
+
+.modal__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.75rem;
+}
+
+.modal__actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.modal__button {
+  width: 6rem;
+  height: 3rem;
+  border-radius: 0.375rem;
+}
+
+.modal__button--cancel {
+  background-color: rgb(239 68 68);
+}
+
+.modal__button--confirm {
+  background-color: rgb(34 197 94);
+}

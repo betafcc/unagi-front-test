@@ -92,7 +92,6 @@ export const LazyImage: FC<ComponentProps<'img'> & { src: string }> = ({
  * Get the dimensions of an element excluding the border
  */
 const getDimensions = (element: HTMLElement) => {
-  console.log(element)
   // Get the bounding rectangle including the border
   const rect = element.getBoundingClientRect()
   const style = getComputedStyle(element)
