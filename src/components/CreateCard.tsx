@@ -8,7 +8,7 @@ import { CardData } from '../lib/collection'
 export const CreateCard: FC<{
   open?: boolean
   onClose?: () => void
-  onConfirm?: () => void
+  onConfirm?: (player: CardData) => void
 }> = ({ open, onClose, onConfirm }) => {
   const [player, setPlayer] = useState<null | CardData>(null)
 
@@ -20,7 +20,7 @@ export const CreateCard: FC<{
         onClose?.()
         setPlayer(null)
       }}
-      onConfirm={onConfirm}
+      onConfirm={() => player && onConfirm?.(player)}
     >
       <div className="flex flex-col items-center gap-4">
         <CardSuggest

@@ -1,40 +1,37 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
-import { CollectionData, fetchAll } from '../lib/collection'
-
-import './Collection.css'
 import { Card, CardSkeleton } from '../components/Card'
 import { CreateCard } from '../components/CreateCard'
+import { useCollection } from '../lib/useCollection'
+
+import './Collection.css'
 
 export const Collection = () => {
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<Error | null>(null)
-  const [cards, setCards] = useState<CollectionData>([])
+  const [state, cmd] = useCollection()
 
-  useEffect(() => {
-    fetchAll().then(
-      (r) => {
-        setCards(r)
-        setLoading(false)
-      },
-      (e) => {
-        setError(e)
-        setLoading(false)
-      }
-    )
-  }, [])
+  const content = (() => {
+    switch (state.type) {
+      case 'loading':
+        return <CardSkeleton />
+      case 'error':
+        return <h1>Server response error, try again later</h1>
+      case 'idle':
+      case 'creating':
+        return (
+          <>
+            <button onClick={cmd.openCreate}>Create card</button>
+            {state.cards.map((card) => (
+              <Card key={card.id} {...card} />
+            ))}
+            <CreateCard
+              open={state.type === 'creating'}
+              onClose={cmd.cancelCreate}
+              onConfirm={cmd.create}
+            />
+          </>
+        )
+    }
+  })()
 
-  const [modal, setModal] = useState(false)
-
-  return (
-    <div>
-      {/* <button onClick={() => setModal(!modal)}>Open Modal</button> */}
-      <CreateCard open />
-      {loading && <CardSkeleton />}
-      {error && <h1>Server response error, try again later</h1>}
-      {cards.map((card) => (
-        <Card key={card.id} {...card} />
-      ))}
-    </div>
-  )
+  return <div>{content}</div>
 }
