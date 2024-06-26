@@ -1,4 +1,5 @@
 import React, { ComponentProps, FC } from 'react'
+import { formatDate } from '../lib/util'
 
 import './Card.css'
 
@@ -22,12 +23,12 @@ export const Card: FC<CardData & Omit<ComponentProps<'div'>, keyof CardData>> =
       <div className="card" {...props}>
         <img
           className="card__image"
-          src={player.image}
+          src={`https://images.fotmob.com/image_resources/playerimages/${id}.png`}
           alt={formatName(player)}
         />
         <h2 className="card__title">{formatName(player)}</h2>
         <h3 className="card__subtitle">
-          {new Date(player.birthday).toLocaleDateString()}
+          {formatDate(new Date(), 'fr')}
         </h3>
       </div>
     )
