@@ -1,0 +1,40 @@
+.card {
+  aspect-ratio: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  width: 15rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-color: rgb(26 26 26);
+  border-width: 2px;
+  border-radius: 0.75rem;
+  color: white;
+}
+
+.card__image {
+  box-sizing: content-box;
+  /* fixed img size from api */
+  width: 192px;
+  height: 192px;
+  /* give some space between top of head and border */
+  padding-top: 1rem;
+  background-color: white;
+  border-width: 2px;
+  border-color: rgb(128 128 128);
+}
+
+.card__title {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.card__subtitle {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1rem;
+}

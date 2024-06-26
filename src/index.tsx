@@ -1,9 +1,11 @@
-import React from 'react';
-import { render } from 'react-dom';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React from 'react'
+import { render } from 'react-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import { Collection } from './pages/Collection';
-import { CreateCard } from './pages/CreateCard';
+import './index.css'
+
+import { Collection } from './pages/Collection'
+import { CreateCard } from './pages/CreateCard'
 
 const App = () => (
   <Router>
@@ -12,6 +14,6 @@ const App = () => (
       <Route exact path="/create-card" component={CreateCard} />
     </Switch>
   </Router>
-);
+)
 
-render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById('root'))
