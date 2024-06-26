@@ -2,6 +2,7 @@ import React, { ComponentProps, FC } from 'react'
 import { formatDate } from '../lib/util'
 
 import './Card.css'
+import { LazyImage } from './LazyImage'
 
 export type CardData = {
   id: number
@@ -21,7 +22,7 @@ export const Card: FC<CardData & Omit<ComponentProps<'div'>, keyof CardData>> =
   ({ id, player, className, ...props }) => {
     return (
       <div className="card" {...props}>
-        <img
+        <LazyImage
           className="card__image"
           src={`https://images.fotmob.com/image_resources/playerimages/${id}.png`}
           alt={formatName(player)}

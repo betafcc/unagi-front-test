@@ -10,8 +10,14 @@ Bonus points (can be done in arbitrary order):
 - ✅ Convert code to fetch the player image without having the full URL,
   but by generating it with the existing ID.
 
-- Implement simple lazy loading for the player image, show loading indicator
+- ✅ Implement simple lazy loading for the player image, show loading indicator
   while the image is loading.
+
+This one was pretty hard and I was surprised there wasn't an easy lib to handle the behaviour I wanted, here is what I implemented:
+
+Images only start loading when the img element is on the screen, and, while image is not loaded, render a loading skeleton
+
+Check [the source file](./src/pages/LazyImage.tsx)
 
 - ✅ Format player DOB in a human-readable way.
 

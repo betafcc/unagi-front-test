@@ -16,6 +16,7 @@
 
 .card__image {
   box-sizing: content-box;
+  display: inline-block;
   /* fixed img size from api */
   width: 192px;
   height: 192px;
