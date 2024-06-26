@@ -3,16 +3,7 @@ import { formatDate } from '../lib/util'
 
 import './Card.css'
 import { LazyImage } from './LazyImage'
-
-export type CardData = {
-  id: number
-  player: {
-    firstname: string
-    lastname: string
-    birthday: string
-    image: string
-  }
-}
+import { CardData } from '../lib/collection'
 
 export const formatName = (
   p: Pick<CardData['player'], 'firstname' | 'lastname'>
