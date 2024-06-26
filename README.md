@@ -23,15 +23,21 @@ Check [the source file](./src/pages/LazyImage.tsx)
 
 NOTE: there is an obvious way, by just doing `new Date().toLocaleDateString()`, which would give the format '6/26/2024' for 'en-us' and '26/06/2024' to almost everyone else, but I'm interpreting the "human-readable" to be something in the lines of "26 June 2024"/"26 juin 2024" for "en-us"/"fr"
 
-2. Fetch collection from a fake REST API
-Rework fetchCollection function in collection.ts to fetch cards from http://localhost:8001/cards instead of the local constant.
-
-Apply necessary changes to Collection component if needed.
+### 2. Fetch collection from a fake REST API
+- ✅ Basic
 
 Bonus points (can be done in arbitrary order):
 
-Add loading state in the UI.
-Handle error state, e.g. if the server returns 500.
-Implement a reusable card component.
-Replace existing plain CSS styles with Styled Components if you see the benefits.
-Add TS types/interfaces in React components where applicable.
+- 📋 Add loading state in the UI.
+- 📋 Handle error state, e.g. if the server returns 500.
+
+- ✅ Implement a reusable card component.
+
+Already implemented on previous step
+
+- ❌ Replace existing plain CSS styles with Styled Components if you see the benefits.
+
+While I do have a ton of experience with styled-components, I haven't used it in a while (in favor of tailwind) and didn't want to waste time setting it up and porting the styles already done
+
+- ✅ Add TS types/interfaces in React components where applicable.
+been doing since I started

@@ -1,20 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-import { fetchCollection } from '../lib/collection'
+import { CollectionData, fetchCollection } from '../lib/collection'
 
 import './Collection.css'
 import { Card } from '../components/Card'
 
 export const Collection = () => {
-  const collection = fetchCollection()
-  const card = collection[0]
+  const [cards, setCards] = useState<CollectionData>([])
+
+  useEffect(() => {
+    fetchCollection().then(setCards)
+  }, [])
 
   /**
    * Step 1: Render the card
    */
   return (
     <div>
-      <Card {...card} />
+      {cards.map((card) => (
+        <Card {...card} />
+      ))}
     </div>
   )
 }

@@ -19,7 +19,7 @@ export const Card: FC<CardData & Omit<ComponentProps<'div'>, keyof CardData>> =
           alt={formatName(player)}
         />
         <h2 className="card__title">{formatName(player)}</h2>
-        <h3 className="card__subtitle">{formatDate(new Date(), 'fr')}</h3>
+        <h3 className="card__subtitle">{formatDate(new Date())}</h3>
       </div>
     )
   }
