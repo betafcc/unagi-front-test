@@ -12,6 +12,7 @@
   border-width: 2px;
   border-radius: 0.75rem;
   color: white;
+  transition: transform 200ms linear;
 }
 
 .card__image {

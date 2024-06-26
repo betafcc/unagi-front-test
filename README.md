@@ -84,3 +84,12 @@ Bonus points (can be done in arbitrary order):
 - ✅ Add empty state (endpoint returns an empty array).
 - ✅ Add simple client-side ordering by any criteria - DOB/Last name/First name etc.
   with a UI control, e.g. Radio button.
+
+
+### Extra:
+
+There is a lot of things unstyled, but at least the basic cards I could do something about:
+
+- background of player photo generates a gradient background with the player id as seed
+- 3d following effect
+- card shine reflection effect
