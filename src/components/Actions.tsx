@@ -15,9 +15,8 @@ export const Actions: FC<{
         <MenuButton>Order ↓</MenuButton>
         <MenuItems anchor="bottom">
           {orders.map((order) => (
-            <MenuItem>
+            <MenuItem key={order}>
               <button
-                key={order}
                 className="actions__option"
                 onClick={() => orderBy(order)}
               >
